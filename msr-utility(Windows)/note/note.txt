@@ -1,0 +1,48 @@
+
+C-State 	Description 			Function
+C0 		Operating 			CPU fully turned on
+C1 		Halt State 			Stops CPU main internal clocks through software
+C1E 		Enhanced Halt 			Similar to C1, additionally reduces CPU voltage
+C2 		Stop Grant 			Stops CPU internal and external clocks through hardware
+C2E 		Extended Stop Grant 		Similar to C2, additionally reduces CPU voltage
+C3 		Deep Sleep 			Stops all CPU internal and external clocks
+C3E 		Extended Stop Grant 		Similar to C3, additionally reduces CPU voltage
+C4 		Deeper Sleep 			Reduces CPU voltage
+C4E 		Enhanced Deeper Sleep 		Reduces CPU voltage even more and turns off the memory cache
+C6 		Deep Power Down 		Reduces the CPU internal voltage to any value, including 0V
+C7 		Deep Power Down 		Similar to C6, additionally LLC (LastLevelCache) is switched off
+
+
+MSR REG		BIT MASK			Description
+
+1FC
+
+		3				FAST_BRK_SNP_EN
+						If disabled, use 'fast' VID swing rate
+
+		4				FAST_BRK_INT_EN
+						If disabled, use 'fast' VID swing rate
+
+		16				PHOLD_CST_PREVENTION_INIT
+
+		17				PHOLD_SR_DISABLE
+
+		19				Disable Energy Efficient Turbo
+
+		22				PWR_PERF_TUNING_DISABLE_SAPM_CTRL
+						SAPM Control
+
+		24				PWR_PERF_TUNING_ENABLE_DYN_SWITCH
+						Power/Performance Switch
+
+		26				When CPU power throttle:
+						1: goto Pm(min freq) on PROCHOT
+						2: goto Pn(max efficient freq)
+
+		28				LTR_SW_DISABLE
+						Ignore SW LTR input
+
+		30				PCH_NEG_DISABLE
+						PKG C-State Lat.Neg.
+						
+
